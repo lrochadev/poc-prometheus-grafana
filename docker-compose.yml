@@ -7,6 +7,7 @@ services:
     - 9090:9090
     volumes:
     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
     networks:
       - production-network
 
@@ -30,4 +31,7 @@ networks:
     driver: bridge
 
 volumes:
-    grafana_data: {}
+    grafana_data: 
+      name: grafana_data
+    prometheus_data: 
+      name: prometheus_data
