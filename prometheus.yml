@@ -21,10 +21,12 @@ scrape_configs:
     metrics_path: '/consumer/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['string-consumer:8080']
+    - targets: ['string-consumer:8081']
+      labels:
+        instance: 'consumer'
 
   - job_name: 'string-producer-actuator'
     metrics_path: '/producer/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['string-producer:8081']
+    - targets: ['string-producer:8082']
